@@ -1,0 +1,248 @@
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    /* width: 100vw; */
+    padding: 10px 10px;
+    background: linear-gradient(to right, #2c8e7d, #7da09a);;
+}
+
+nav, ul, li {
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+}
+
+nav {
+    margin-right: 4em;
+}
+
+li {
+    margin-right: 1.5em;
+}
+
+#jtec-logo {
+    width: 131px;
+    height: 125px;
+    margin-left: 30px;
+}
+
+.page-title {
+    margin-left: auto;
+    margin-right: 10em;
+    color: #18106D;
+    font-weight: bolder;
+    letter-spacing: 5px;
+}
+
+.nav-icon {
+   height: 35px;
+   width: 35px;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.group1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+    width: 90%;
+}
+
+#menu-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2em;
+    margin-left: 4em;
+    margin-top: 0px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+}
+
+#search-input-field {
+    height: 2em;
+    width: 50em;
+    margin-right: 5px;
+    border: 1px solid #7DA09A;
+    border-radius: 8px;
+    background-color: #7DA09A;
+    color: #000000;
+    box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+#search-input-field::placeholder {
+    color: #000000;
+}
+
+#search-button {
+    height: 2em;
+    width: 8em;
+    margin-top: 2px;
+    border: 1px solid #7DA09A;
+    background-color: #7DA09A;
+    color: #000000;
+    font-weight: normal;
+}
+
+.group2 {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 20%;
+    margin-top: 2em;
+}
+
+
+.filter-inputs {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 4em;
+    margin-top: 0.5em;
+    background-color: #7da09a;
+    border-radius: 8px;
+    box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+#filter-title {
+    font-weight: bold;
+    color: #18106d;
+    margin-bottom: 0px;
+}
+
+
+.select-all-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#date-filter-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1em;
+    width: 5em;
+}
+
+.priority-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10em;
+}
+
+#flag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    width: 20px;
+    margin-right: 3px;
+}
+
+.department-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10em;
+}
+
+.issue-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10em;
+}
+
+.select-options-filter {
+    margin-left: 8px;
+    height: fit-content;
+    width: fit-content;
+}
+
+.group3 {
+    width: 90%;
+    background-color: #7da09a;
+    margin-top: 1em;
+    border-radius: 8px;
+}
+
+.table-container {
+    border-radius: 8px;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.25);
+}
+
+.table-head {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 95%;
+}
+
+h3 {
+    width: 10em;
+    margin-left: 1.5em;
+}
+
+.table-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.query-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 95%;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    box-shadow: 7px 7px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.query-flag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 25px;
+}
+
+.query-elements {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 3em;
+    /* margin-right: 1em; */
+    width: 10em;
+}
+
