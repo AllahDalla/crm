@@ -31,7 +31,7 @@ app.use(passport.session());
 
 
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
   
 })
@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
 app.get('/google',
     passport.authenticate('google', {
             scope:
-                ['email', 'profile']
+                ['https://mail.google.com/', 'profile']
         }
     ));
 
@@ -48,7 +48,6 @@ app.get('/google',
         failureRedirect: '/failed',
     }),
     function (req, res) {
-        console.log(req.query)
         res.redirect("/")
 
     }
@@ -60,6 +59,10 @@ app.get("/success", (req, res) => {
 
 app.get("/failed", (req, res) => {
   res.send("Failed")
+})
+
+app.post("/platform-call", (req, res) =>{
+  res.sendFile(path.resolve(__dirname, 'gmail_messages.txt'))
 })
 
 
@@ -94,11 +97,6 @@ app.post('/login', (req, res) => {
   }
 })
 
-// app.post('/session', (req, res) => {
-//   const data = req.body
-//   console.log(data)
-//   res.send("Success")
-// })
 
 // Start the server
 app.listen(7000, () => {

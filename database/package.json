@@ -6,7 +6,8 @@
     "googleapis": "^105.0.0",
     "nodemon": "^2.0.21",
     "passport": "^0.5.3",
-    "passport-google-oauth20": "^2.0.0"
+    "passport-google-oauth20": "^2.0.0",
+    "strip-tags": "^0.1.1"
   },
   "scripts": {
     "start": "nodemon server.js",

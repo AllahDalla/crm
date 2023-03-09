@@ -3,3 +3,11 @@ passport.js
 node_modules/
 
 credentials.json
+
+monitor_gmail.js
+
+access_token.txt
+
+gmail_messages.txt
+
+user_login.txt
