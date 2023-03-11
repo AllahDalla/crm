@@ -6,7 +6,7 @@ credentials.json
 
 monitor_gmail.js
 
-access_token.txt
+database/access_token.txt
 
 gmail_messages.txt
 

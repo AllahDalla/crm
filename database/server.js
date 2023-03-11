@@ -3,9 +3,11 @@ const database = require("./dummy_database")
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const fs = require("fs")
 
 const passport = require('passport');
 const cookieSession = require('cookie-session');
+const { file } = require("googleapis/build/src/apis/file");
 require('./passport');
 
 const app = express();
@@ -20,6 +22,7 @@ next();
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../client/', 'build')))
+// app.use(express.static('./static/'))
 
 app.use(cookieSession({
   name: 'google-auth-session',
@@ -29,12 +32,6 @@ app.use(cookieSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
-  
-})
 
 app.get('/google',
     passport.authenticate('google', {
@@ -48,10 +45,19 @@ app.get('/google',
         failureRedirect: '/failed',
     }),
     function (req, res) {
-        res.redirect("/")
+        res.redirect("/admin")
 
     }
 );
+
+app.get('/populate', (req, res) =>{
+  if(!fs.existsSync(path.resolve(__dirname, 'taskboard_list.txt'))){
+    console.log("File not found")
+    res.status(404).send()
+  }else{
+    res.status(200).sendFile(path.resolve(__dirname, 'taskboard_list.txt'))
+  }
+})
 
 app.get("/success", (req, res) => {
   res.send(`Welcome ${req.user.email}`)
@@ -61,8 +67,46 @@ app.get("/failed", (req, res) => {
   res.send("Failed")
 })
 
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+  
+})
+
 app.post("/platform-call", (req, res) =>{
-  res.sendFile(path.resolve(__dirname, 'gmail_messages.txt'))
+  fs.access(path.resolve(__dirname, 'gmail_messages.txt'), (err)=> {
+    if(err){
+     res.status(404).send()
+    }else{
+      res.sendFile(path.resolve(__dirname, 'gmail_messages.txt'))
+    }
+  })
+})
+
+app.post("/update-taskboard", (req,res) =>{
+  const filename = 'taskboard_list.txt'
+  fs.access(filename, (err) =>{
+    if(err){
+      fs.writeFile(filename, JSON.stringify(req.body) + '\n', (err) => {
+        if(err){
+          console.log(err)
+          res.status(500).send()
+        }else{
+          console.log(`File '${filename}' has been written to successfully!`)
+          res.status(200).send()
+        }
+      })
+    }else{
+      fs.appendFile(filename, JSON.stringify(req.body) + '\n', (err) => {
+        if(err){
+          console.log(err)
+          res.status(500).send()
+        }else{
+          console.log(`File '${filename}' has been updated successfully!`)
+          res.status(200).send()
+        }
+      })
+    }
+  })
 })
 
 
