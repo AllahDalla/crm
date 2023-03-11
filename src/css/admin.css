@@ -1,4 +1,78 @@
+
+
 .incoming-table-container {
-    border: 1px solid red;
-    
+    padding: 10px 10px;  
+}
+
+.incoming-table {
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0 ;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.incoming-table thead tr {
+    background-color: #009879;
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: bold;
+}
+
+.incoming-table th,
+.incoming-table td {
+    padding: 12px 15px;
+}
+
+.incoming-table tbody tr{
+    border-bottom: 1px solid #dddddd;
+    text-align: center;
+}
+
+.incoming-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.incoming-table tbody tr:last-of-type{
+    border-bottom: 2px solid #009879;
+}
+
+.incoming-table td {
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.incoming-table button {
+    font-size: 1.3em;
+    font-weight: bold;
+    width: fit-content;
+    height: fit-content;
+    background-color: #009879;
+}
+
+.incoming-table button:hover {
+    background-color: #00695C;
+}
+
+.incoming-table button:focus:active {
+    background-color: #4DB6AC;
+}
+
+.platform-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 40%;
+}
+
+#platform-icon {
+    width: 0.9em;
+    height: 0.9em;
+    margin-right: 5px;
+    padding: 2px 2px;
 }
